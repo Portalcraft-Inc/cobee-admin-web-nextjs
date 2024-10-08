@@ -1,0 +1,48 @@
+name: Deploy to Firebase Hosting (STG)
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  #   push:
+  #     branches: [ main ]
+  #   pull_request:
+  #     branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    env:
+      REACT_APP_API_URL: your_url
+      REACT_APP_API_URL_DEBUG: your_url
+      REACT_APP_GOOGLE_APP_ID: your_id
+      REACT_APP_FACEBOOK_APP_ID: your_id
+      REACT_APP_APP_URL: your_url
+      REACT_APP_AVATAR_URL: https://ui-avatars.com/api/?size=128&background=random&name=
+      REACT_APP_FIREBASE_API_KEY: '${{ secrets.REACT_APP_FIREBASE_API_KEY_PROD }}'
+      REACT_APP_FIREBASE_DOMAIN: your_domain
+      REACT_APP_FIREBASE_PROJECT_ID: your_id
+      REACT_APP_FIREBASE_STORAGE_BUCKET: your_id
+      REACT_APP_FIREBASE_SENDER_ID: your_id
+      REACT_APP_FIREBASE_APP_ID: your_id
+      REACT_APP_FIREBASE_MEASUREMENT_ID: your_id
+      REACT_APP_ENVIRONMENT: staging
+      REACT_APP_GOOGLE_KEY: your_key
+      NO_TLS: true
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '>=18.17.0'
+      - run: yarn install
+      - run: yarn build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STG }}'
+          expires: 30d
+          projectId: your_id
+          target: your_id
+          channelId: live

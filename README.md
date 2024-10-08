@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cobee Admin Web (Next.js)
 
-## Getting Started
+This is the admin web project for Cobee, built with Next.js and TypeScript.
 
-First, run the development server:
+## System Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version >=18.17.0)
+- Yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone this repository to your local machine.
+2. Run the following command to install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Development
 
-## Learn More
+To run the development server:
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Linting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To check for code errors:
 
-## Deploy on Vercel
+## Running Tests
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To run the tests:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Build
+
+To build the project for production:
+
+## Deployment
+
+This project uses GitHub Actions for automatic deployment to Firebase Hosting. There are two workflows for staging and production:
+
+- Staging: `.github/workflows/deploy-firebase-stg.yml`
+- Production: `.github/workflows/deploy-firebase-prod.yml`
+
+To deploy, you need to configure the following secrets in your GitHub repository:
+
+- `FIREBASE_SERVICE_ACCOUNT_STG`: Service account for staging environment
+- `FIREBASE_SERVICE_ACCOUNT_PROD`: Service account for production environment
+- `REACT_APP_FIREBASE_API_KEY_PROD`: Firebase API key for production environment
+
+## Project Structure
+
+- `src/`: Contains the main application source code
+- `public/`: Contains static resources
+- `.github/workflows/`: Contains CI/CD configuration files
+- `package.json`: Project configuration and dependencies
+- `tsconfig.json`: TypeScript configuration
+- `.eslintrc.json`: ESLint configuration
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- ESLint
+- Jest (for testing)
+- Husky (for pre-commit hooks)
+- Firebase (for hosting and other services)
+
+## Contributing
+
+Please ensure your code adheres to the linting rules and passes all tests before creating a pull request.
+
+## Contact
+
+If you have any questions, please contact the development team.
