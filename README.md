@@ -22,7 +22,13 @@ This is the admin web project for Cobee, built with Next.js and TypeScript.
    yarn install
    ```
 
-3. Set up Husky for pre-commit hooks:
+3. Clone the .env file from .env.example:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Set up Husky for pre-commit hooks:
    ```bash
    yarn prepare
    ```
@@ -31,7 +37,9 @@ This is the admin web project for Cobee, built with Next.js and TypeScript.
 
 To run the development server:
 
-To run the development server:
+```bash
+yarn dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
@@ -39,13 +47,25 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 
 To check for code errors:
 
+```bash
+yarn lint
+```
+
 ## Running Tests
 
 To run the tests:
 
+```bash
+yarn test
+```
+
 ## Build
 
 To build the project for production:
+
+```bash
+yarn build
+```
 
 ## Deployment
 
