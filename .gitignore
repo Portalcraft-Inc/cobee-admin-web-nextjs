@@ -17,6 +17,9 @@ __test__
 # production
 /build
 
+# environment variables
+.env
+
 # misc
 .DS_Store
 *.pem
