@@ -1,3 +1,5 @@
+import { DashboardLayout } from '@/layouts/dashboard'
+import { ThemeProvider } from '@/theme/theme-provider'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
@@ -20,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.variable}>{children}</body>
+      <body className={roboto.variable}>
+        <ThemeProvider>
+          <DashboardLayout>{children}</DashboardLayout>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
